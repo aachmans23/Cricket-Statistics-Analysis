@@ -194,26 +194,32 @@ while True:
     if df is not None:
         if player_role.lower()=='batter':
             player=Batter_Stats(df,player_name)
-            print("Innings:", player.total_innings())
-            print("Runs:", player.total_runs())
-            print("Average:", player.average())
-            print("Strike Rate:", player.strike_rate())
-            print("Fours:", player.fours())
-            print("Sixes:", player.sixes())
-            print("Highest Score:", player.highscore())
-            print("50s:", player.half_centuries())
-            print("100s:", player.centuries())
+            if player.total_innings()==0:
+                print('Player has not played in this format')
+            else:
+                print("Innings:", player.total_innings())
+                print("Runs:", player.total_runs())
+                print("Average:", player.average())
+                print("Strike Rate:", player.strike_rate())
+                print("Fours:", player.fours())
+                print("Sixes:", player.sixes())
+                print("Highest Score:", player.highscore())
+                print("50s:", player.half_centuries())
+                print("100s:", player.centuries())
 
         elif player_role.lower()=='bowler':
             player=Bowler_Stats(df,player_name)
-            print("Innings:", player.total_innings())
-            print("Wickets:", player.total_wickets())
-            print("Average:", player.average())
-            print("Strike Rate:", player.strike_rate())
-            print("Economy:", player.economy())
-            print("3 Wicket Hauls:", player.three_wicket_hauls())
-            print("5 Wicket Hauls:", player.five_wicket_hauls())
-            print("Dot Balls:", player.total_dot_balls())
+            if (player.total_innings()==0):
+                print('Player has not played in this format')
+            else:
+                print("Innings:", player.total_innings())
+                print("Wickets:", player.total_wickets())
+                print("Average:", player.average())
+                print("Strike Rate:", player.strike_rate())
+                print("Economy:", player.economy())
+                print("3 Wicket Hauls:", player.three_wicket_hauls())
+                print("5 Wicket Hauls:", player.five_wicket_hauls())
+                print("Dot Balls:", player.total_dot_balls())
 
         else:
             print('Invalid Role')
